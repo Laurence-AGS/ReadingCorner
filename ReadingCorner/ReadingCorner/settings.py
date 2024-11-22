@@ -77,14 +77,18 @@ WSGI_APPLICATION = 'ReadingCorner.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'readingcorner',
-        'USER': 'rony',
-        'PASSWORD': 'rony1234',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.postgresql',  # Use PostgreSQL backend
+        'NAME': 'ReadingCorner',           # Database name
+        'USER': 'dbAdmin',       # Azure PostgreSQL username
+        'PASSWORD': 'Reading.Corner',           # Database password
+        'HOST': 'readingcorner1.postgres.database.azure.com',  # Server host
+        'PORT': '5432',                          # Default PostgreSQL port
+        'OPTIONS': {
+            'sslmode': 'require',                # Required for Azure PostgreSQL
+        },
     }
 }
+
 
 
 

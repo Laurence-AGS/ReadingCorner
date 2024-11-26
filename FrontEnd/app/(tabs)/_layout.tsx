@@ -1,28 +1,39 @@
 import React from "react";
 import { View } from "react-native";
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import { DrawerToggleButton } from '@react-navigation/drawer';
-import Home from "./index";
-import Explore from "./explore";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { Drawer } from "expo-router/drawer";
+import { DrawerToggleButton } from "@react-navigation/drawer";
 
-
-const Drawer = createDrawerNavigator();
 
 export default function Layout() {
-  return (
-    <Drawer.Navigator
-      screenOptions={{
-        drawerPosition: 'right',
-        headerLeft: () => null,
-        headerRight: () => (
-          <View style={{ transform: [{ scaleX: -1 }] }}>
-            <DrawerToggleButton />
-          </View>
-        ),
-      }}
-    > 
-      <Drawer.Screen name="Home" component={Home} />
-      <Drawer.Screen name="Explore" component={Explore} />
-    </Drawer.Navigator>
-  );
+    return (
+        <GestureHandlerRootView style={{ flex: 1 }}>
+            <Drawer
+                screenOptions={{
+                    drawerPosition: "right",
+                    headerLeft: () => null,
+                    headerRight: () => (
+                        <View style={{ transform: [{ scaleX: -1 }] }}>
+                            <DrawerToggleButton />
+                        </View>
+                    ),
+                }}
+            >
+                <Drawer.Screen
+                    name="index"
+                    options={{
+                        drawerLabel: "Home",
+                        title: "Home",
+                    }}
+                />
+                <Drawer.Screen
+                    name="explore"
+                    options={{
+                        drawerLabel: "Explore",
+                        title: "Explore",
+                    }}
+                />
+            </Drawer>
+        </GestureHandlerRootView>
+    );
 }

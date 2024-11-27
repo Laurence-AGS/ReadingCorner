@@ -13,7 +13,7 @@ Sara Ehab: Frontend developer
 Laurence Ashraf: Frontend developer
 
 
-#Scrum Workflow
+#Scrum Workflow - 
 ReadingCorner follows the agile scrum technique. 
 - Sprint Planning: Defining user objectives and tasks.
 - Daily Scrum: Standup meeting each day targetting what we have to do and what challenges that faced the team.

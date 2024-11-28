@@ -31,13 +31,16 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'login',
+    'signup',
+    'rest_framework',
+    'testapp',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'testapp',
 ]
 
 
@@ -77,14 +80,14 @@ WSGI_APPLICATION = 'ReadingCorner.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',  # Use PostgreSQL backend
-        'NAME': 'ReadingCorner',           # Database name
-        'USER': 'dbAdmin',       # Azure PostgreSQL username
-        'PASSWORD': 'Reading.Corner',           # Database password
-        'HOST': 'readingcorner1.postgres.database.azure.com',  # Server host
-        'PORT': '5432',                          # Default PostgreSQL port
+        'ENGINE': 'django.db.backends.postgresql',  
+        'NAME': 'ReadingCorner',           
+        'USER': 'dbAdmin',       
+        'PASSWORD': 'Reading.Corner',           
+        'HOST': 'readingcorner1.postgres.database.azure.com',  
+        'PORT': '5432',                         
         'OPTIONS': {
-            'sslmode': 'require',                # Required for Azure PostgreSQL
+            'sslmode': 'require',                
         },
     }
 }

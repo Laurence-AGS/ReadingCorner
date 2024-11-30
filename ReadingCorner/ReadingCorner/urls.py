@@ -18,12 +18,27 @@ from django.contrib import admin
 from django.urls import path, include
 # from .views import SignUpView
 from testapp import views
+# from . import views
+from profileUser.views import profileUser  # Correct import for UserProfile view
+
+# from django.contrib.auth.views import LogoutView, LoginView
+
 
 urlpatterns = [
+    path('', include('welcome.urls')),
     path('admin/', admin.site.urls),
     # path('users/', views.user_list, name='users'),
     path('signup/', include('signup.urls')),    # path('books', views.user_list, name='books'),
     path('login/', include('login.urls')),    # path('books', views.user_list, name='books'),
+    path('profile/', include('profileUser.urls')),
+    path('logout/', include('logout.urls')),
+    path('home/', include('home.urls')),
+    path('search/', include('search.urls')),
+
+    path('accounts/', include('allauth.urls')),  # Allauth URLs // ignore for now
+    # path('auth/', include('authentication.urls')),
+    # path('accounts/login/', LoginView.as_view(template_name='login.html'), name='login'),
+
 ]
 
 

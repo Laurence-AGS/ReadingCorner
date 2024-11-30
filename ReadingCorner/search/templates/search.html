@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results</h1>
+    <form method="get" action="{% url 'search' %}">
+        <!-- Search by book name -->
+        <input type="text" name="q" placeholder="Search for books..." value="{{ request.GET.q }}">
+        
+        <!-- Filter by language -->
+        <select name="language">
+            <option value="">Select Language</option>
+            <option value="English" {% if request.GET.language == "English" %}selected{% endif %}>English</option>
+            <option value="French" {% if request.GET.language == "French" %}selected{% endif %}>French</option>
+            <option value="Spanish" {% if request.GET.language == "Spanish" %}selected{% endif %}>Spanish</option>
+        </select>
+
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- Display results only if there's a search term or language filter -->
+    {% if request.GET.q or request.GET.language %}
+        {% if results %}
+            <ul>
+                {% for book in results %}
+                    {% if not request.GET.language or book.Language == request.GET.language %}
+                        <li>
+                            <strong>{{ book.BookName }}</strong> by {{ book.Author }}<br>
+                            Language: {{ book.Language }}<br>
+                            Content: {{ book.Content }}
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No books found for your search.</p>
+        {% endif %}
+    {% else %}
+        <!-- Do not display any results or message if no filter/search is applied -->
+        <p>Please enter a search term or select a language.</p>
+    {% endif %}
+</body>
+</html>

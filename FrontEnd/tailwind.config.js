@@ -19,8 +19,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        onboard: ["Rouge Script"],
-        onboard1: ["Poppins"],
+        pthin: ["Poppins-Thin", "sans-serif"],
+        pextralight: ["Poppins-ExtraLight", "sans-serif"],
         plight: ["Poppins-Light", "sans-serif"],
         pregular: ["Poppins-Regular", "sans-serif"],
         pmedium: ["Poppins-Medium", "sans-serif"],

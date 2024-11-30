@@ -7,6 +7,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { useFonts } from 'expo-font';
 import { SplashScreen } from "expo-router";
 import { StatusBar } from "expo-status-bar";
+import { Image } from "react-native";
+import images from "@/constants/images";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -39,8 +41,8 @@ export default function Layout() {
             <Drawer 
                 screenOptions={{
                     drawerPosition: "right",
-                    headerStyle: { backgroundColor: "#F5F5F7" },
-                    headerLeft: () => null,
+                    headerStyle: { backgroundColor: "#F5F5F7", shadowColor: "transparent",height: 80 },
+                    headerLeft: () => (<Image source={images.logoSmall} resizeMode='contain' className='w-[40px] h-[45px]'/>),
                     headerRight: () => (
                         <View className="scale-x-[-1] bg-[#F5F5F7]">
                             <DrawerToggleButton tintColor="#705C53" pressColor="#DBB5B5"/>

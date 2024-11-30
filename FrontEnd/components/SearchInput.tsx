@@ -4,14 +4,18 @@ import { View, TouchableOpacity, Image, TextInput, Alert } from "react-native";
 
 import { icons } from "../constants";
 
-const SearchInput = ({ initialQuery = 'any'}) => {
+interface SearchInputProps {
+  initialQuery?: string;
+}
+
+const SearchInput = ({ initialQuery }: SearchInputProps) => {
   const pathname = usePathname();
   const [query, setQuery] = useState(initialQuery || "");
 
   return (
-    <View className="flex flex-row items-center space-x-4 w-full h-16 px-4 bg-black-100 rounded-2xl border-2 border-black-200 focus:border-secondary">
+    <View className="flex-row items-center space-x-4 w-full h-16 px-4 bg-secondary rounded-2xl border-2 border-Dark focus:border-secondary">
       <TextInput
-        className="text-base mt-0.5 text-white flex-1 font-pregular"
+        className="text-base mt-0.5 text-Dark flex-1 font-pregular bg-gray-100"
         value={query}
         placeholder="Search a book"
         placeholderTextColor="#CDCDE0"
@@ -30,7 +34,7 @@ const SearchInput = ({ initialQuery = 'any'}) => {
           else router.push(`/search/${query}`);
         }}
       >
-        <Image source={icons.search} className="w-5 h-5" resizeMode="contain" />
+        <Image source={icons.search} className="w-5 h-5 color-Dark" resizeMode="contain"/>
       </TouchableOpacity>
     </View>
   );

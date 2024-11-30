@@ -5,8 +5,8 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 
 export default function Profile() {
   return (
-    <SafeAreaView className='flex-1 items-center justify-center bg-[#EDDFE0]'>
-      <Text className='text-3xl text-[#705C53]'>Welcome to profile</Text>
+    <SafeAreaView className='flex-1 items-center justify-center bg-secondary'>
+      <Text className='text-3xl text-Dark'>Welcome to profile</Text>
     </SafeAreaView>
   )
 }

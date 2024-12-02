@@ -7,7 +7,7 @@ Our business is based on users buying access codes for the books they want and r
 
 
 #Team Members - 
-Rony Ramez: Scrum Master and Backend developer
+Rony Ramez: Backend developer
 Mariam Zakary: Backend developer
 Sara Ehab: Frontend developer
 Laurence Ashraf: Frontend developer

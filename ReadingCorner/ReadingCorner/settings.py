@@ -64,13 +64,13 @@ INSTALLED_APPS = [
 
 
 SOCIALACCOUNT_PROVIDERS = {
-    # 'google': {
-    #     'APP': {
-    #         'client_id': '977892589293-qpk7qubkgvj0d5ugfr19omhvmbs92upt.apps.googleusercontent.com',
-    #         'secret': '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',
-    #         'key': ''
-    #     }
-    # }
+    'google': {
+        'APP': {
+            'client_id': '977892589293-qpk7qubkgvj0d5ugfr19omhvmbs92upt.apps.googleusercontent.com',
+            'secret': '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',
+            'key': ''
+        }
+    }
 }
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

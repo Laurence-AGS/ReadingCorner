@@ -46,7 +46,7 @@ jobs:
       with:
         login-server: readingcornerregistry.azurecr.io
         username: ${{ readingcornerregistry }}
-        password: ${{ secrets.HBvZH3bUoKumJ5u3g5L3NS35dWWDnu3AQUy5Mze1O7+ACRDsnURV }}
+        password: ${{ secrets.AZURE_REGISTRY_PASSWORD }}
 
     - name: Push Docker image
       run: docker push readingcornerregistry.azurecr.io/readingcorner:latest

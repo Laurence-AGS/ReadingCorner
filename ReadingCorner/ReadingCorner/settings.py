@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,13 +25,15 @@ SECRET_KEY = 'django-insecure-$=ws@^99_@3x@m8g2am8*ucd#34nk4cf%4^us7&^w!rk56@2v+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['readingcorner-guemakemdwg6ccbe.eastus-01.azurewebsites.net', '*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'drf_spectacular',
     'django_extensions',
+    'Books',
     'welcome',
     'search',
     'home',
@@ -60,20 +62,21 @@ INSTALLED_APPS = [
 
 ]
 
+
 SOCIALACCOUNT_PROVIDERS = {
-    'google': {
-        'APP': {
-            'client_id': '977892589293-qpk7qubkgvj0d5ugfr19omhvmbs92upt.apps.googleusercontent.com',
-            'secret': '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',
-            'key': ''
-        }
-    }
+    # 'google': {
+    #     'APP': {
+    #         'client_id': '977892589293-qpk7qubkgvj0d5ugfr19omhvmbs92upt.apps.googleusercontent.com',
+    #         'secret': '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',
+    #         'key': ''
+    #     }
+    # }
 }
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-SITE_ID = 1
-LOGIN_REDIRECT_URL = 'home/'
-LOGOUT_REDIRECT_URL = '/'
+# SITE_ID = 1
+# LOGIN_REDIRECT_URL = 'home/'
+# LOGOUT_REDIRECT_URL = '/'
 # SESSION_COOKIE_NAME = 'sessionid' 
 # SESSION_ENGINE = 'django.contrib.sessions.backends.db' 
 
@@ -82,6 +85,10 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',  # Default backend
     'allauth.account.auth_backends.AuthenticationBackend',  # Allauth backend
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
 
 # REST_FRAMEWORK = {
 #     'DEFAULT_AUTHENTICATION_CLASSES': [

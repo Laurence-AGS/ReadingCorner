@@ -20,6 +20,7 @@ from django.urls import path, include
 from testapp import views
 # from . import views
 from profileUser.views import profileUser  # Correct import for UserProfile view
+from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
 
 # from django.contrib.auth.views import LogoutView, LoginView
 
@@ -34,6 +35,14 @@ urlpatterns = [
     path('logout/', include('logout.urls')),
     path('home/', include('home.urls')),
     path('search/', include('search.urls')),
+    path('books/', include('Books.urls')), #Books for searching
+
+
+    #Backend API documentation
+    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
+    path('api/schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
+    path('api/schema/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
+
 
     path('accounts/', include('allauth.urls')),  # Allauth URLs // ignore for now
     # path('auth/', include('authentication.urls')),
